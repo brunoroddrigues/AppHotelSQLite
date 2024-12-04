@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.Simulacao"
+             Title="Simulacao"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="txt_search" Margin="10" Placeholder="Buscar por simulação" TextChanged="txt_search_TextChanged" />
+
+            <ListView x:Name="lst_simulacao" ItemSelected="lst_simulacao_ItemSelected">
+
+                <ListView.Header Margin="0">
+                    <Grid ColumnDefinitions="*, *, *, *, *, *, *, *">
+                        <Label Grid.Column="0" Text="Quarto" />
+                        <Label Grid.Column="1" Text="Check-In" />
+                        <Label Grid.Column="2" Text="Ckeck-Out" />
+                        <Label Grid.Column="3" Text="Adultos" />
+                        <Label Grid.Column="4" Text="Criaças" />
+                        <Label Grid.Column="5" Text="Estadias" />
+                        <Label Grid.Column="7" Text="Valor" />
+                    </Grid>
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Remover" Clicked="MenuItem_Clicked" />
+                            </ViewCell.ContextActions>
+                            <Grid ColumnDefinitions="3*, *, *, *">
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding }" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding }" />
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding }" />
+                                <Label Grid.Row="0" Grid.Column="3" Text="{Binding }" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
